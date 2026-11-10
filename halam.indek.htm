@@ -1,0 +1,974 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agen Yamaha BJM - Dealer Motor</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: #f4f4f4;
+    color: #222;
+}
+
+:root {
+    --merah: #e60012;
+    --hitam: #111;
+}
+
+/* HEADER */
+.topbar {
+    background: #111;
+    color: white;
+    padding: 10px 7%;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+header {
+    background: white;
+    padding: 17px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px #0002;
+}
+
+.logo {
+    color: var(--merah);
+    font-size: 26px;
+    font-weight: 900;
+}
+
+.logo small {
+    display: block;
+    color: #222;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #222;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+nav a:hover { color: var(--merah); }
+
+.btn {
+    background: var(--merah);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.btn:hover { background: #b9000d; }
+
+/* BANNER UTAMA */
+.hero {
+    min-height: 460px;
+    background:
+    linear-gradient(90deg,#080808 5%,#0009 60%,transparent),
+    url("https://www.yamaha-motor.co.id/uploads/products/new_product_model_image/2026011411065945811R98632.png")
+    right center / auto 90% no-repeat,
+    #111;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 55px 8%;
+}
+
+.hero-content { max-width: 570px; }
+
+.hero h4 {
+    color: #ff4b58;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin: 18px 0;
+}
+
+.hero h1 span { color: #ff2638; }
+
+.hero p {
+    color: #ddd;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* BAGIAN UMUM */
+section { padding: 65px 7%; }
+
+.judul {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.judul h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.judul p { color: #777; }
+
+/* PENCARIAN */
+.search-box {
+    max-width: 400px;
+    margin: 0 auto 30px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    outline-color: var(--merah);
+}
+
+/* KATALOG MOTOR */
+.produk {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px #0001;
+    transition: .3s;
+}
+
+.card:hover { transform: translateY(-6px); }
+
+.card img {
+    width: 100%;
+    height: 210px;
+    object-fit: contain;
+    padding: 12px;
+    background: #fafafa;
+}
+
+.card-info { padding: 18px; }
+
+.card-info h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.card-info p {
+    color: #777;
+    font-size: 13px;
+    min-height: 40px;
+}
+
+.label {
+    background: #ffe9eb;
+    color: var(--merah);
+    padding: 5px 9px;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.harga {
+    color: var(--merah);
+    font-size: 19px;
+    font-weight: bold;
+    margin: 15px 0 4px;
+}
+
+.keterangan {
+    color: #888;
+    font-size: 10px;
+}
+
+.aksi {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.aksi button {
+    flex: 1;
+    font-size: 12px;
+    padding: 10px 5px;
+}
+
+.detail-btn {
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pesan-btn {
+    background: var(--merah);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* PROMO */
+.promo {
+    background: linear-gradient(120deg,#85000b,#e60012,#90000a);
+    color: white;
+    text-align: center;
+    padding: 65px 20px;
+}
+
+.promo h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.promo p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+.promo .btn {
+    background: white;
+    color: var(--merah);
+    margin-top: 22px;
+}
+
+/* KEUNGGULAN */
+.keunggulan {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+}
+
+.keunggulan div {
+    background: white;
+    text-align: center;
+    padding: 25px 15px;
+    border-radius: 10px;
+}
+
+.keunggulan h3 { margin: 10px 0; }
+
+.keunggulan p {
+    font-size: 13px;
+    color: #777;
+}
+
+.icon { font-size: 35px; }
+
+/* FORM PEMESANAN */
+.form-section { background: #111; }
+
+.form-box {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+}
+
+.form-box h2 {
+    color: var(--merah);
+    margin-bottom: 8px;
+}
+
+.form-box > p {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+}
+
+.field label {
+    display: block;
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline-color: var(--merah);
+}
+
+.full { grid-column: 1/-1; }
+
+.form-box button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.catatan {
+    font-size: 11px;
+    color: #888;
+    margin-top: 12px;
+}
+
+/* MODAL DETAIL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000b;
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.modal-content {
+    background: white;
+    max-width: 520px;
+    width: 100%;
+    padding: 28px;
+    border-radius: 12px;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.modal-content h2 { color: var(--merah); }
+
+.modal-content p {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.tutup {
+    float: right;
+    border: none;
+    font-size: 24px;
+    background: none;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    background: #080808;
+    color: white;
+    padding: 35px 7%;
+    text-align: center;
+}
+
+footer h2 { color: var(--merah); }
+
+footer p {
+    color: #aaa;
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+@media(max-width:950px) {
+    .produk { grid-template-columns: repeat(2,1fr); }
+    .keunggulan { grid-template-columns: repeat(2,1fr); }
+}
+
+@media(max-width:600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a { margin: 0; font-size: 12px; }
+
+    .hero {
+        min-height: 440px;
+        background:
+        linear-gradient(90deg,#080808dd,#0008),
+        url("https://www.yamaha-motor.co.id/uploads/products/new_product_model_image/2026011411065945811R98632.png")
+        center/cover;
+    }
+
+    .hero h1 { font-size: 35px; }
+
+    .produk { grid-template-columns: 1fr; }
+
+    .keunggulan { grid-template-columns: 1fr 1fr; }
+
+    .form-grid { grid-template-columns: 1fr; }
+
+    .full { grid-column: auto; }
+
+    .form-box { padding: 22px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INFORMASI ATAS -->
+<div class="topbar">
+    <span>📍 Agen Yamaha BJM</span>
+    <span>📞 0822-9778-7853</span>
+    <span>Pelayanan Penjualan Motor Yamaha</span>
+</div>
+
+<!-- NAVIGASI -->
+<header>
+    <div class="logo">
+        YAMAHA
+        <small>AGEN YAMAHA BJM</small>
+    </div>
+
+    <nav>
+        <a href="#home">Beranda</a>
+        <a href="#produk">Produk</a>
+        <a href="#promo">Promo</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#pesan">Pemesanan</a>
+    </nav>
+
+    <a class="btn"
+       href="https://wa.me/6282297787853"
+       target="_blank">
+       Hubungi Kami
+    </a>
+</header>
+
+<!-- BANNER -->
+<div class="hero" id="home">
+    <div class="hero-content">
+        <h4>AGEN YAMAHA BJM</h4>
+
+        <h1>
+            SEMAKIN DI DEPAN
+            <span>BERSAMA YAMAHA!</span>
+        </h1>
+
+        <p>
+            Temukan motor impian Anda dengan pilihan
+            produk Yamaha terbaru. Dapatkan informasi
+            harga, promo, dan konsultasi pembelian
+            tunai maupun kredit.
+        </p>
+
+        <a href="#produk" class="btn">
+            LIHAT PRODUK →
+        </a>
+    </div>
+</div>
+
+<!-- KATALOG -->
+<section id="produk">
+
+    <div class="judul">
+        <h2>Produk Unggulan Yamaha</h2>
+        <p>Pilih motor sesuai kebutuhan dan gaya Anda.</p>
+    </div>
+
+    <div class="search-box">
+        <input
+            type="search"
+            id="cari"
+            placeholder="Cari motor Yamaha..."
+        >
+    </div>
+
+    <div class="produk" id="daftarProduk"></div>
+
+    <p class="catatan">
+        Harga di atas merupakan referensi OTR Jakarta,
+        bukan harga final Banjarmasin. Hubungi admin
+        untuk harga OTR setempat dan promo terbaru.
+    </p>
+</section>
+
+<!-- PROMO -->
+<div class="promo" id="promo">
+    <h2>PROMO SPESIAL YAMAHA!</h2>
+
+    <p>
+        Saatnya memiliki motor impian Anda.
+        Tanyakan promo terbaru, uang muka, cicilan,
+        dan ketersediaan unit langsung kepada
+        Agen Yamaha BJM.
+    </p>
+
+    <a
+      class="btn"
+      href="https://wa.me/6282297787853?text=Halo%20Agen%20Yamaha%20BJM%2C%20saya%20ingin%20bertanya%20tentang%20promo."
+      target="_blank">
+      TANYA PROMO SEKARANG
+    </a>
+</div>
+
+<!-- KEUNGGULAN -->
+<section id="layanan">
+
+    <div class="judul">
+        <h2>Pelayanan Agen Yamaha BJM</h2>
+        <p>Kami siap membantu kebutuhan pembelian motor Anda.</p>
+    </div>
+
+    <div class="keunggulan">
+
+        <div>
+            <div class="icon">🏍️</div>
+            <h3>Pilihan Motor</h3>
+            <p>Berbagai pilihan motor Yamaha.</p>
+        </div>
+
+        <div>
+            <div class="icon">💳</div>
+            <h3>Tunai dan Kredit</h3>
+            <p>Konsultasi pilihan pembayaran.</p>
+        </div>
+
+        <div>
+            <div class="icon">🎁</div>
+            <h3>Informasi Promo</h3>
+            <p>Tanyakan penawaran yang tersedia.</p>
+        </div>
+
+        <div>
+            <div class="icon">🤝</div>
+            <h3>Pelayanan Ramah</h3>
+            <p>Bantuan informasi pemesanan.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- FORM PEMESANAN -->
+<section class="form-section" id="pesan">
+
+    <div class="form-box">
+
+        <h2>Formulir Pemesanan Motor</h2>
+
+        <p>
+            Silakan isi data berikut untuk melakukan
+            konsultasi dan pemesanan motor Yamaha.
+        </p>
+
+        <form id="formPesan">
+
+            <div class="form-grid">
+
+                <div class="field">
+                    <label>Nama Lengkap *</label>
+                    <input
+                        type="text"
+                        id="nama"
+                        placeholder="Nama lengkap"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label>Nomor WhatsApp *</label>
+                    <input
+                        type="tel"
+                        id="telepon"
+                        placeholder="08xxxxxxxxxx"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label>Pilih Motor *</label>
+                    <select id="motor" required>
+                        <option value="">-- Pilih Motor --</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>Warna Motor</label>
+                    <input
+                        type="text"
+                        id="warna"
+                        placeholder="Warna pilihan">
+                </div>
+
+                <div class="field">
+                    <label>Pembayaran *</label>
+                    <select id="pembayaran" required>
+                        <option value="">-- Pilih Pembayaran --</option>
+                        <option>Cash / Tunai</option>
+                        <option>Kredit / Cicilan</option>
+                        <option>Masih Konsultasi</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>Kota / Kecamatan *</label>
+                    <input
+                        type="text"
+                        id="kota"
+                        placeholder="Kota tempat tinggal"
+                        required>
+                </div>
+
+                <div class="field full">
+                    <label>Alamat Lengkap *</label>
+                    <textarea
+                        id="alamat"
+                        rows="3"
+                        placeholder="Masukkan alamat lengkap"
+                        required></textarea>
+                </div>
+
+                <div class="field full">
+                    <label>Catatan Tambahan</label>
+                    <textarea
+                        id="catatan"
+                        rows="3"
+                        placeholder="Pertanyaan atau permintaan promo"></textarea>
+                </div>
+
+            </div>
+
+            <button class="btn" type="submit">
+                KIRIM PESANAN VIA WHATSAPP →
+            </button>
+
+        </form>
+
+        <p class="catatan">
+            Pesanan akan diteruskan ke WhatsApp admin
+            Agen Yamaha BJM.
+        </p>
+
+    </div>
+</section>
+
+<!-- MODAL DETAIL MOTOR -->
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <button class="tutup" onclick="tutupDetail()">
+            ×
+        </button>
+
+        <h2 id="judulDetail"></h2>
+
+        <div id="isiDetail"></div>
+
+        <button class="btn" id="pesanDetail"
+                style="margin-top:20px;width:100%">
+            PESAN MOTOR INI
+        </button>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+
+    <h2>YAMAHA AGEN BJM</h2>
+
+    <p>Semakin di Depan Bersama Yamaha</p>
+
+    <p>WhatsApp: 0822-9778-7853</p>
+
+    <p>
+        © 2026 Agen Yamaha BJM.
+        Website Promosi dan Pemesanan Motor.
+    </p>
+
+</footer>
+
+<script>
+
+// DATA PRODUK MOTOR
+const motorData = [
+
+{
+    id: "nmax",
+    nama: "Yamaha NMAX Neo",
+    kategori: "MAXI",
+    harga: 34565000,
+    hargaTeks: "Rp 34.565.000",
+    gambar: "https://www.yamaha-motor.co.id/uploads/products/new_product_model_image/2026011411065945811R98632.png",
+    deskripsi: "Maxi scooter elegan dan nyaman untuk perjalanan.",
+    mesin: "155,09 cc",
+    teknologi: "Blue Core dan VVA",
+    fitur: "Maxi Comfort Seat, Smart Key pada varian tertentu, Y-Connect sesuai varian.",
+    transmisi: "Otomatis"
+},
+
+{
+    id: "aerox",
+    nama: "Yamaha Aerox Alpha",
+    kategori: "SPORT",
+    harga: 30700000,
+    hargaTeks: "Rp 30.700.000",
+    gambar: "https://www.yamaha-motor.co.id/uploads/products/new_product_model_image/2026012212211612160Y45922.png",
+    deskripsi: "Motor sporty dengan desain agresif dan modern.",
+    mesin: "155,09 cc",
+    teknologi: "Blue Core dan VVA",
+    fitur: "Full LED, desain sporty, Y-Connect dan fitur sesuai varian.",
+    transmisi: "Otomatis"
+},
+
+{
+    id: "fazzio",
+    nama: "Yamaha Fazzio Hybrid",
+    kategori: "URBAN",
+    harga: 22820000,
+    hargaTeks: "Rp 22.820.000",
+    gambar: "https://www.yamaha-motor.co.id/uploads/products/new_product_model_image/2026080316375451807H45960.png",
+    deskripsi: "Motor retro modern dengan teknologi hybrid.",
+    mesin: "124,86 cc",
+    teknologi: "Blue Core Hybrid",
+    fitur: "USB Power Socket, bagasi luas dan desain retro modern.",
+    transmisi: "Otomatis"
+},
+
+{
+    id: "gear",
+    nama: "Yamaha Gear 125",
+    kategori: "MATIC",
+    harga: 19495000,
+    hargaTeks: "Rp 19.495.000",
+    gambar: "https://www.yamaha-motor.co.id/uploads/products/new_product_model_image/2025030717193296301C81889.png",
+    deskripsi: "Motor praktis untuk aktivitas sehari-hari.",
+    mesin: "124,96 cc",
+    teknologi: "Blue Core",
+    fitur: "Stop & Start System, bagasi 10,1 liter dan Double Hook.",
+    transmisi: "Otomatis"
+}
+
+];
+
+// MENAMPILKAN PRODUK
+const daftar = document.getElementById("daftarProduk");
+const pilihanMotor = document.getElementById("motor");
+
+function tampilkanProduk(data) {
+
+    daftar.innerHTML = "";
+
+    if (data.length === 0) {
+        daftar.innerHTML = "<p>Motor tidak ditemukan.</p>";
+        return;
+    }
+
+    data.forEach(m => {
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+            <img src="${m.gambar}"
+                 alt="${m.nama}"
+                 onerror="this.style.display='none'">
+
+            <div class="card-info">
+
+                <span class="label">${m.kategori}</span>
+
+                <h3>${m.nama}</h3>
+
+                <p>${m.deskripsi}</p>
+
+                <div class="harga">${m.hargaTeks}</div>
+
+                <div class="keterangan">
+                    Harga rekomendasi OTR Jakarta
+                </div>
+
+                <div class="aksi">
+
+                    <button class="detail-btn"
+                        onclick="detailMotor('${m.id}')">
+                        DETAIL
+                    </button>
+
+                    <button class="pesan-btn"
+                        onclick="pilihMotor('${m.id}')">
+                        PESAN
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+        daftar.appendChild(card);
+    });
+}
+
+// MEMBUAT PILIHAN MOTOR DI FORM
+motorData.forEach(m => {
+
+    const option = document.createElement("option");
+
+    option.value = m.nama;
+    option.textContent = m.nama;
+
+    pilihanMotor.appendChild(option);
+
+});
+
+// PENCARIAN MOTOR
+document.getElementById("cari")
+.addEventListener("input", function() {
+
+    const kata = this.value.toLowerCase();
+
+    const hasil = motorData.filter(m =>
+        m.nama.toLowerCase().includes(kata)
+    );
+
+    tampilkanProduk(hasil);
+
+});
+
+// DETAIL MOTOR
+function detailMotor(id) {
+
+    const m = motorData.find(item => item.id === id);
+
+    document.getElementById("judulDetail").textContent =
+        m.nama;
+
+    document.getElementById("isiDetail").innerHTML = `
+
+        <p><b>Kategori:</b> ${m.kategori}</p>
+
+        <p><b>Mesin:</b> ${m.mesin}</p>
+
+        <p><b>Teknologi:</b> ${m.teknologi}</p>
+
+        <p><b>Transmisi:</b> ${m.transmisi}</p>
+
+        <p><b>Fitur:</b> ${m.fitur}</p>
+
+        <p><b>Harga referensi:</b> ${m.hargaTeks}</p>
+
+        <p><b>Catatan:</b> Harga final dan spesifikasi varian
+        harus dikonfirmasi kepada dealer.</p>
+
+    `;
+
+    document.getElementById("pesanDetail").onclick = function() {
+
+        tutupDetail();
+        pilihMotor(id);
+
+    };
+
+    document.getElementById("modal").style.display = "flex";
+
+}
+
+// TUTUP DETAIL
+function tutupDetail() {
+
+    document.getElementById("modal").style.display = "none";
+
+}
+
+// MEMILIH MOTOR
+function pilihMotor(id) {
+
+    const m = motorData.find(item => item.id === id);
+
+    pilihanMotor.value = m.nama;
+
+    document.getElementById("pesan").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+// KIRIM PESANAN KE WHATSAPP
+document.getElementById("formPesan")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const nama = document.getElementById("nama").value.trim();
+    const telepon = document.getElementById("telepon").value.trim();
+    const motor = document.getElementById("motor").value;
+    const warna = document.getElementById("warna").value.trim();
+    const pembayaran = document.getElementById("pembayaran").value;
+    const kota = document.getElementById("kota").value.trim();
+    const alamat = document.getElementById("alamat").value.trim();
+    const catatan = document.getElementById("catatan").value.trim();
+
+    const nomorDealer = "6282297787853";
+
+    const pesan = `
+HALO AGEN YAMAHA BJM
+
+Saya ingin melakukan pemesanan motor.
+
+Nama: ${nama}
+Nomor WhatsApp: ${telepon}
+Motor: ${motor}
+Warna: ${warna || "Belum ditentukan"}
+Pembayaran: ${pembayaran}
+Kota: ${kota}
+Alamat: ${alamat}
+Catatan: ${catatan || "-"}
+
+Mohon informasi stok, harga OTR, dan promo terbaru.
+
+Terima kasih.
+    `;
+
+    const url = "https://wa.me/" +
+        nomorDealer +
+        "?text=" +
+        encodeURIComponent(pesan);
+
+    window.open(url, "_blank");
+
+});
+
+// TAMPILKAN SEMUA PRODUK SAAT WEBSITE DIBUKA
+tampilkanProduk(motorData);
+
+</script>
+
+</body>
+</html>
